@@ -83,5 +83,5 @@
 - [x] Transform existing lesson material into structured short-form learning moments with vocabulary, listening, response, and progress hooks.
 - [x] Build a vertical creator-style learning feed with instant practice and respectful tutor prompts.
 - [x] Add a learner hero path, daily missions, saved learning moments, and non-competitive progress loops.
-- [ ] Define creator moderation, publishing, attribution, and safety boundaries before allowing user-generated educational content.
+- [x] Define creator moderation, publishing, attribution, and safety boundaries before allowing user-generated educational content.
 - [ ] Validate the new feed experience, performance, accessibility, and learning-state persistence before publishing the next release. Visual active-response validation has passed; authenticated persistence requires database migration in the target environment.

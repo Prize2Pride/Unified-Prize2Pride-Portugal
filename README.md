@@ -17,6 +17,12 @@ Professor Roued El Fadhel is the principal Portuguese tutor. Chandra is a distin
 
 The platform generates **8,064 deterministic practice situations** across A1–C2, including arrival, housing, work, university, health, family, shopping, travel, public services, digital life, culture, entrepreneurship, emergency problem solving, sustainability, hospitality, and community participation. Each situation is a structured starting point for guided conversation, lessons, and review—not a claim that all content has already undergone human curriculum approval.
 
+## Creator-Led Learning Feed
+
+The `/for-you` experience turns the existing structured lessons into short, active learning moments. Each moment makes its source lesson visible, lets the learner hear a Portuguese target in the browser, requires an answer rather than passive viewing, supplies immediate feedback, and offers a deliberate next action. The path progresses from **Beginner** to **Hero** without autoplay, public popularity metrics, or unmoderated creator uploads.
+
+Authenticated learners can persist saved and completed moments through the included `microMomentProgress` migration. Visitors can still practise locally without an account.
+
 ## Generative Content Safety
 
 The course generator supports long-form lesson drafts, targeted exercises, and cultural knowledge. The generator now asks for situation grounding and explicit tutor-review notes. A high output limit does not itself certify a lesson; generated output should be validated, reviewed, and published through an editorial workflow before it becomes learner-facing curriculum.
@@ -37,7 +43,7 @@ Apply the included Drizzle migrations against the intended database before enabl
 
 ## Current Validation
 
-The unified baseline currently passes **21 automated tests**, TypeScript checking, and a production build. The production build produces a large initial client bundle, so route-level code splitting is an explicit next performance task before a broad public launch.
+The unified baseline currently passes **22 automated tests**, TypeScript checking, a production build, and local visual interaction checks. Page-level lazy loading keeps the short-form feed in its own bundle; explicit mobile performance budgets remain a pre-launch task.
 
 ## Repository Boundaries
 
