@@ -92,3 +92,9 @@
 - [x] Implement deterministic catalog generation and database-ready multi-skill lesson metadata while preserving the existing lesson set.
 - [x] Build curriculum browsing and lesson practice experiences that make all four language skills visible and actionable.
 - [x] Add quality, provenance, editorial-review, and scale-validation documentation before presenting the 10,000-lesson release.
+
+## Corrected Import-Ready 10,000 Situation Dataset
+- [x] Define the CSV and JSONL import schema for 10,000 original, distinct Portuguese learning-situation records.
+- [x] Generate 10,000 genuinely distinct A1–C2 situation records with learner objective and listening, reading, writing, and speaking activities.
+- [x] Validate record count, IDs, level allocation, unique titles, four-skill completeness, encoding, and import parsing.
+- [x] Package the source dataset, checksum, data dictionary, import guide, and transparent editorial-status statement into a ZIP.
