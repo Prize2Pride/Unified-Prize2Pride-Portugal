@@ -17,6 +17,12 @@ Professor Roued El Fadhel is the principal Portuguese tutor. Chandra is a distin
 
 The platform generates **8,064 deterministic practice situations** across A1–C2, including arrival, housing, work, university, health, family, shopping, travel, public services, digital life, culture, entrepreneurship, emergency problem solving, sustainability, hospitality, and community participation. Each situation is a structured starting point for guided conversation, lessons, and review—not a claim that all content has already undergone human curriculum approval.
 
+## Ten-Thousand-Lesson Curriculum
+
+The `/curriculum` map now exposes **10,000 original A1–C2 lesson templates** across personal, civic, academic, and professional domains. The distribution is 1,400 A1 lessons, 1,600 A2 lessons, 1,800 B1 lessons, 1,800 B2 lessons, 1,700 C1 lessons, and 1,700 C2 lessons. Each template contains explicit learner actions for **listening, reading, writing, and speaking**, a practical situation, a level-based objective, and a clear editorial status.
+
+The templates are not a claim that 10,000 fully authored lessons have been editorially certified. The catalog is a scalable original curriculum structure, and every learner-facing dialogue, explanation, task, regional language choice, or assessment needs review before publication. The evidence and originality boundary are documented in `docs/CURRICULUM_EVIDENCE_BOUNDARY.md`.
+
 ## Creator-Led Learning Feed
 
 The `/for-you` experience turns the existing structured lessons into short, active learning moments. Each moment makes its source lesson visible, lets the learner hear a Portuguese target in the browser, requires an answer rather than passive viewing, supplies immediate feedback, and offers a deliberate next action. The path progresses from **Beginner** to **Hero** without autoplay, public popularity metrics, or unmoderated creator uploads.
@@ -43,7 +49,7 @@ Apply the included Drizzle migrations against the intended database before enabl
 
 ## Current Validation
 
-The unified baseline currently passes **22 automated tests**, TypeScript checking, a production build, and local visual interaction checks. Page-level lazy loading keeps the short-form feed in its own bundle; explicit mobile performance budgets remain a pre-launch task.
+The unified baseline currently passes **25 automated tests**, TypeScript checking, a production build, and local visual interaction checks. Page-level lazy loading keeps the short-form feed and curriculum studio in separate bundles; explicit mobile performance budgets remain a pre-launch task.
 
 ## Repository Boundaries
 

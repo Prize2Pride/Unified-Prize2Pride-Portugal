@@ -15,6 +15,8 @@ const ProgressPage = lazy(() => import("./pages/Progress"));
 const CourseGenerator = lazy(() => import("./pages/CourseGenerator"));
 const Situations = lazy(() => import("./pages/Situations"));
 const ForYou = lazy(() => import("./pages/ForYou"));
+const Curriculum = lazy(() => import("./pages/Curriculum"));
+const CurriculumLesson = lazy(() => import("./pages/CurriculumLesson"));
 
 function Router() {
   return (
@@ -29,6 +31,8 @@ function Router() {
         <Route path="/generate" component={CourseGenerator} />
         <Route path="/situations" component={Situations} />
         <Route path="/for-you" component={ForYou} />
+        <Route path="/curriculum" component={Curriculum} />
+        <Route path="/curriculum/:id" component={CurriculumLesson} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

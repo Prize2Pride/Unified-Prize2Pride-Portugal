@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { startLogin } from "@/const";
-import { BookOpen, Compass, Home, MessageCircle, Sparkles, TrendingUp, Zap, LogOut, User, Menu, X } from "lucide-react";
+import { BookOpen, Compass, Home, LibraryBig, MessageCircle, Sparkles, TrendingUp, Zap, LogOut, User, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
@@ -16,6 +16,7 @@ import { trpc } from "@/lib/trpc";
 const navItems = [
   { path: "/", label: "Home", icon: Home },
   { path: "/courses", label: "Courses", icon: BookOpen },
+  { path: "/curriculum", label: "10K Path", icon: LibraryBig },
   { path: "/for-you", label: "For You", icon: Sparkles },
   { path: "/situations", label: "Situations", icon: Compass },
   { path: "/professor", label: "Professor", icon: User },

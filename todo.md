@@ -85,3 +85,10 @@
 - [x] Add a learner hero path, daily missions, saved learning moments, and non-competitive progress loops.
 - [x] Define creator moderation, publishing, attribution, and safety boundaries before allowing user-generated educational content.
 - [ ] Validate the new feed experience, performance, accessibility, and learning-state persistence before publishing the next release. Visual active-response validation has passed; authenticated persistence requires database migration in the target environment.
+
+## Ten-Thousand-Lesson Four-Skill Curriculum
+- [x] Research reliable public frameworks for personal, civic, and professional Portuguese learning situations without copying third-party course content.
+- [x] Define a 10,000-lesson A1–C2 curriculum matrix with situation domains, performance objectives, and explicit listening, reading, writing, and speaking activities.
+- [x] Implement deterministic catalog generation and database-ready multi-skill lesson metadata while preserving the existing lesson set.
+- [x] Build curriculum browsing and lesson practice experiences that make all four language skills visible and actionable.
+- [x] Add quality, provenance, editorial-review, and scale-validation documentation before presenting the 10,000-lesson release.

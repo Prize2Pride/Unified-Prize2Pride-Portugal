@@ -11,6 +11,8 @@ The unified platform was validated locally at `http://localhost:3010` after the 
 | Tutor companion | Renders Professor Roued El Fadhel, Chandra, explanation-language controls, situation selector, teaching register options, suggested prompts, and responsive input surface. |
 | For You short-form feed | Renders the Beginner-to-Hero path, existing-lesson provenance, vocabulary prompt, native browser playback control, response choices, saved-moment affordance, non-autoplay statement, and tutor handoff. |
 | Active response | Selecting the correct answer immediately raised the local moment streak and displayed supportive corrective feedback with the original lesson example. |
+| 10,000-lesson curriculum map | Renders the six CEFR level allocations totalling 10,000, searchable and paginated template cards, domain coverage, and a visible four-skill contract. |
+| Four-skill lesson studio | A rendered A1 lesson exposes level, domain, objective, editorial-status boundary, listening, reading, writing, and speaking actions, browser speech playback, and session-level completion state. |
 | Automated verification | TypeScript check, 21 Vitest assertions, and production build passed before this visual review. |
 
 The build reports an initial JavaScript bundle above the recommended warning threshold. Route-level code splitting is therefore retained as a pre-launch performance task.
