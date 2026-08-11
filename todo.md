@@ -68,7 +68,7 @@
 - [x] Add a searchable situation explorer and hand selected contexts into the multilingual tutor practice flow.
 - [ ] Upgrade the existing long-form lesson generator to structured, grounded, learner-safe outputs with tenant-aware rate limits and human-review controls.
 - [x] Add adaptive learner companion recommendations, durable mastery signals, review queues, and privacy-aware progress analytics.
-- [ ] Add production-quality test coverage, accessibility checks, performance budgets, and staged scale-readiness documentation. Initial type, test, build, and local visual checks have passed; route-level code splitting remains outstanding.
+- [ ] Add production-quality test coverage, accessibility checks, performance budgets, and staged scale-readiness documentation. Initial type, test, build, local visual checks, and route-level code splitting have passed; database migration and explicit performance budgets remain outstanding.
 
 ## Unified Prize2Pride Repository
 - [x] Audit the implemented `main` branch and the Arabic-speakers repository as the only currently authorized source inputs.
@@ -77,3 +77,11 @@
 - [x] Add a public product showcase documenting the unified Portuguese companion, tutors, curriculum generation, and Tunisia-first learning model.
 - [x] Create the public Unified Prize2Pride repository and import this implemented feature branch as its preserved baseline.
 - [x] Preserve the Arabic-speakers repository requirements as a documented source module in the unified codebase.
+
+## Creator-Led Beginner-to-Hero Experience
+- [x] Define the Arabic- and Tunisian-speaker short-form learning journey from Beginner to Hero using the existing lesson catalog.
+- [x] Transform existing lesson material into structured short-form learning moments with vocabulary, listening, response, and progress hooks.
+- [x] Build a vertical creator-style learning feed with instant practice and respectful tutor prompts.
+- [x] Add a learner hero path, daily missions, saved learning moments, and non-competitive progress loops.
+- [ ] Define creator moderation, publishing, attribution, and safety boundaries before allowing user-generated educational content.
+- [ ] Validate the new feed experience, performance, accessibility, and learning-state persistence before publishing the next release. Visual active-response validation has passed; authenticated persistence requires database migration in the target environment.

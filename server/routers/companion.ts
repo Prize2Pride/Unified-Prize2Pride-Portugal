@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getLearnerPreferences, getNextSituationPractice, recordSituationPractice, updateLearnerPreferences } from "../db";
+import { completeMicroMoment, getLearnerPreferences, getMicroMomentProgress, getNextSituationPractice, recordSituationPractice, saveMicroMoment, updateLearnerPreferences } from "../db";
 import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { EXPLANATION_LANGUAGES, getSituationById, getSituationPreview, SITUATION_COUNT, TUTOR_IDS } from "../../shared/learningWorld";
 
@@ -32,4 +32,7 @@ export const companionRouter = router({
     const next = scheduled ? getSituationById(scheduled.situationId) : getSituationPreview(1)[0];
     return { situation: next ?? null, practice: scheduled ?? null };
   }),
+  microProgress: protectedProcedure.query(({ ctx }) => getMicroMomentProgress(ctx.user.id)),
+  saveMicroMoment: protectedProcedure.input(z.object({ momentId: z.string().min(1).max(64), isSaved: z.boolean() })).mutation(({ ctx, input }) => saveMicroMoment(ctx.user.id, input.momentId, input.isSaved)),
+  completeMicroMoment: protectedProcedure.input(z.object({ momentId: z.string().min(1).max(64), isCorrect: z.boolean() })).mutation(({ ctx, input }) => completeMicroMoment(ctx.user.id, input.momentId, input.isCorrect)),
 });

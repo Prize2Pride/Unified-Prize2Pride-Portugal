@@ -93,6 +93,23 @@ export const situationPractice = mysqlTable("situationPractice", {
 export type SituationPractice = typeof situationPractice.$inferSelect;
 
 /**
+ * Short-form feed progress. This stores learning signals only, not free-form learner responses.
+ */
+export const microMomentProgress = mysqlTable("microMomentProgress", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  momentId: varchar("momentId", { length: 64 }).notNull(),
+  isSaved: boolean("isSaved").default(false).notNull(),
+  isCompleted: boolean("isCompleted").default(false).notNull(),
+  correctAttempts: int("correctAttempts").notNull().default(0),
+  lastSeenAt: timestamp("lastSeenAt").defaultNow().notNull(),
+  completedAt: timestamp("completedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => [uniqueIndex("micro_moment_progress_user_moment_unique").on(table.userId, table.momentId)]);
+export type MicroMomentProgress = typeof microMomentProgress.$inferSelect;
+
+/**
  * Chat history for Portuguese tutor conversations.
  */
 export const chatHistory = mysqlTable("chatHistory", {
