@@ -15,6 +15,13 @@
       "when": 1783948099533,
       "tag": "0001_supreme_pixie",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1786482294147,
+      "tag": "0002_warm_namorita",
+      "breakpoints": true
     }
   ]
 }

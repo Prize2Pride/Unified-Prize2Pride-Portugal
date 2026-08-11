@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { publicProcedure, router } from "../_core/trpc";
 import { invokeLLM } from "../_core/llm";
+import { explanationLanguageName, getSituationById } from "../../shared/learningWorld";
 
 export const courseGeneratorRouter = router({
   // Generate a full lesson on any Portuguese topic
@@ -9,30 +10,35 @@ export const courseGeneratorRouter = router({
       z.object({
         topic: z.string().min(1),
         level: z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]).default("A1"),
-        language: z.enum(["en", "pt"]).default("en"),
+        language: z.enum(["en", "pt", "ar", "tounsi"]).default("en"),
+        situationId: z.string().optional(),
       })
     )
     .mutation(async ({ input }) => {
-      const prompt = `You are an expert Portuguese language curriculum designer. Generate a complete, detailed lesson.
+      const situation = input.situationId ? getSituationById(input.situationId) : undefined;
+      const prompt = `You are an expert Portuguese language curriculum designer for Prize2Pride. Generate a complete, detailed lesson draft with safe, reviewable sections.
 
 TOPIC: ${input.topic}
 LEVEL: ${input.level}
-OUTPUT LANGUAGE: ${input.language === "pt" ? "Portuguese" : "English"}
+EXPLANATION LANGUAGE: ${explanationLanguageName(input.language)}
+${situation ? `SITUATION: ${situation.title}; learner goal: ${situation.goal} ${situation.context}.` : "SITUATION: Create one concrete, real-life Portuguese situation appropriate to the topic."}
 
 Generate a comprehensive lesson containing:
 1. **Lesson Title** (in English and Portuguese)
 2. **Learning Objectives** (3-5 clear goals)
-3. **Vocabulary** — 15 key words with: Portuguese word, English translation, IPA pronunciation, example sentence
+3. **Vocabulary** — 15 key words with: Portuguese word, translation in the explanation language, IPA pronunciation, example sentence
 4. **Grammar Explanation** — detailed rules with examples, tables for conjugations/patterns, common exceptions
 5. **Reading Comprehension Text** — 250+ word authentic-style passage in Portuguese
-6. **English Translation** of the reading passage
+6. **Translation** of the reading passage in the explanation language
 7. **Dialogues** — 2 realistic dialogues (4-6 lines each) between speakers A and B
 8. **Quiz Questions** — 8 questions mixing multiple-choice and true/false
 9. **Cultural Notes** — 2-3 interesting cultural facts related to the topic
 10. **Pronunciation Tips** — specific guidance for sounds in this lesson
 11. **Common Mistakes** — 3 mistakes learners make and corrections
 
-Format the response as clean, well-structured Markdown. Make it immediately usable for learning.`;
+12. **Tutor Review Notes** — content assumptions, regional variation, and facts requiring a human curriculum review
+
+Format the response as clean, well-structured Markdown. Do not invent citations, proficiency claims, or cultural facts; flag any uncertain item in Tutor Review Notes.`;
 
       const response = await invokeLLM({
         model: "claude-opus-4-7",

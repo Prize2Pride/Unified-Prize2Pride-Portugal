@@ -1,4 +1,4 @@
-import { boolean, int, mysqlEnum, mysqlTable, text, timestamp, varchar, json } from "drizzle-orm/mysql-core";
+import { boolean, int, json, mysqlEnum, mysqlTable, text, timestamp, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -61,7 +61,39 @@ export type UserProgress = typeof userProgress.$inferSelect;
 export type InsertUserProgress = typeof userProgress.$inferInsert;
 
 /**
- * Chat history for Professor Carlos conversations.
+ * Per-learner language and companion settings. Defaults keep Portuguese accessible
+ * while allowing Tunisia-first Arabic and Tunisian-dialect explanations.
+ */
+export const learnerPreferences = mysqlTable("learnerPreferences", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull().unique(),
+  tutor: mysqlEnum("tutor", ["roued", "chandra"]).default("roued").notNull(),
+  explanationLanguage: mysqlEnum("explanationLanguage", ["ar", "tounsi", "pt", "en"]).default("ar").notNull(),
+  immersionMode: mysqlEnum("immersionMode", ["guided", "balanced", "immersive"]).default("balanced").notNull(),
+  dailyGoalMinutes: int("dailyGoalMinutes").notNull().default(15),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+export type LearnerPreference = typeof learnerPreferences.$inferSelect;
+
+/**
+ * Situation-level practice signals enable adaptive review without storing sensitive free-form speech.
+ */
+export const situationPractice = mysqlTable("situationPractice", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  situationId: varchar("situationId", { length: 32 }).notNull(),
+  masteryScore: int("masteryScore").notNull().default(0),
+  attempts: int("attempts").notNull().default(0),
+  lastPracticedAt: timestamp("lastPracticedAt"),
+  nextReviewAt: timestamp("nextReviewAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => [uniqueIndex("situation_practice_user_situation_unique").on(table.userId, table.situationId)]);
+export type SituationPractice = typeof situationPractice.$inferSelect;
+
+/**
+ * Chat history for Portuguese tutor conversations.
  */
 export const chatHistory = mysqlTable("chatHistory", {
   id: int("id").autoincrement().primaryKey(),

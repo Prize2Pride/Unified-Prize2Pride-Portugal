@@ -1,7 +1,8 @@
-import { eq } from "drizzle-orm";
+import { and, asc, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, learnerPreferences, LearnerPreference, situationPractice, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
+import { masteryScoreAfterAttempt, nextReviewAtForScore } from "./practiceScheduler";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -89,4 +90,52 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+export type LearnerPreferenceUpdate = {
+  tutor?: "roued" | "chandra";
+  explanationLanguage?: "ar" | "tounsi" | "pt" | "en";
+  immersionMode?: "guided" | "balanced" | "immersive";
+  dailyGoalMinutes?: number;
+};
+
+export async function getLearnerPreferences(userId: number): Promise<LearnerPreference | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  const existing = await db.select().from(learnerPreferences).where(eq(learnerPreferences.userId, userId)).limit(1);
+  if (existing[0]) return existing[0];
+  await db.insert(learnerPreferences).values({ userId });
+  const created = await db.select().from(learnerPreferences).where(eq(learnerPreferences.userId, userId)).limit(1);
+  return created[0];
+}
+
+export async function updateLearnerPreferences(userId: number, input: LearnerPreferenceUpdate): Promise<LearnerPreference | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  await getLearnerPreferences(userId);
+  await db.update(learnerPreferences).set(input).where(eq(learnerPreferences.userId, userId));
+  const updated = await db.select().from(learnerPreferences).where(eq(learnerPreferences.userId, userId)).limit(1);
+  return updated[0];
+}
+
+export async function recordSituationPractice(userId: number, situationId: string, score: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const existing = await db.select().from(situationPractice).where(and(eq(situationPractice.userId, userId), eq(situationPractice.situationId, situationId))).limit(1);
+  const prior = existing[0];
+  const safeScore = Math.max(0, Math.min(100, Math.round(score)));
+  const masteryScore = masteryScoreAfterAttempt(prior?.masteryScore ?? 0, safeScore);
+  const now = new Date();
+  const values = { masteryScore, attempts: (prior?.attempts ?? 0) + 1, lastPracticedAt: now, nextReviewAt: nextReviewAtForScore(safeScore, now) };
+  if (prior) {
+    await db.update(situationPractice).set(values).where(eq(situationPractice.id, prior.id));
+  } else {
+    await db.insert(situationPractice).values({ userId, situationId, ...values });
+  }
+  return { situationId, score: safeScore, ...values };
+}
+
+export async function getNextSituationPractice(userId: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const rows = await db.select().from(situationPractice).where(eq(situationPractice.userId, userId)).orderBy(asc(situationPractice.nextReviewAt)).limit(1);
+  return rows[0];
+}

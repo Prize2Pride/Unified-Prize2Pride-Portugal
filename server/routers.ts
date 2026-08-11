@@ -6,6 +6,7 @@ import { lessonsRouter } from "./routers/lessons";
 import { professorRouter } from "./routers/professor";
 import { publicChatRouter } from "./routers/publicChat";
 import { courseGeneratorRouter } from "./routers/courseGenerator";
+import { companionRouter } from "./routers/companion";
 
 export const appRouter = router({
   system: systemRouter,
@@ -21,6 +22,7 @@ export const appRouter = router({
   professor: professorRouter,
   publicChat: publicChatRouter,
   courseGenerator: courseGeneratorRouter,
+  companion: companionRouter,
 });
 
 export type AppRouter = typeof appRouter;

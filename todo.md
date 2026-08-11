@@ -58,3 +58,21 @@
 ## Delivery
 - [x] Final checkpoint and deliver to user
 - [x] Personalized checkpoint with رواد الفاضل avatar and welcome modal
+
+## Prize2Pride Tunisia-First Augmentation
+- [x] Preserve all baseline routes, lessons, tutor welcome assets, and generation endpoints while augmenting the platform on this feature branch.
+- [x] Correct the remaining backend tutor identity so Professor Roued El Fadhel is represented consistently across all learner-facing flows.
+- [x] Add a respectfully presented Chandra tutor profile and explicit tutor-selection model without altering the established Professor Roued experience.
+- [x] Add Arabic, Tunisian-dialect, Portuguese, and right-to-left learner preferences with clear Portuguese-immersion and Arabic-explanation modes.
+- [x] Add a situation-driven curriculum domain model supporting thousands of validated Portuguese real-life contexts.
+- [ ] Upgrade the existing long-form lesson generator to structured, grounded, learner-safe outputs with tenant-aware rate limits and human-review controls.
+- [x] Add adaptive learner companion recommendations, durable mastery signals, review queues, and privacy-aware progress analytics.
+- [ ] Add production-quality test coverage, accessibility checks, performance budgets, and staged scale-readiness documentation.
+
+## Unified Prize2Pride Repository
+- [x] Audit the implemented `main` branch and the Arabic-speakers repository as the only currently authorized source inputs.
+- [ ] Create a public Unified Prize2Pride repository that preserves the existing main-branch platform history and documents imported Arabic-speakers requirements.
+- [x] Define a repository intake process for additional repositories that the owner explicitly selects or grants through the connected integration.
+- [x] Add a public product showcase documenting the unified Portuguese companion, tutors, curriculum generation, and Tunisia-first learning model.
+- [x] Create the public Unified Prize2Pride repository and import this implemented feature branch as its preserved baseline.
+- [x] Preserve the Arabic-speakers repository requirements as a documented source module in the unified codebase.
