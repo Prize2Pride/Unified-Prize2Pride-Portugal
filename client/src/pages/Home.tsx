@@ -20,14 +20,14 @@ const features = [
   {
     icon: BookOpen,
     title: "Structured Lessons",
-    desc: "500+ lessons covering vocabulary, grammar, reading comprehension, dialogues, and quizzes — from A1 to C2.",
+    desc: "A 10,000-template A1–C2 curriculum map with real-life situation objectives and explicit listening, reading, writing, and speaking actions.",
     color: "text-primary",
     bg: "bg-primary/10",
   },
   {
     icon: GraduationCap,
-    title: "رواد الفاضل",
-    desc: "Your personal AI Portuguese tutor available 24/7. Ask anything — grammar, culture, pronunciation, idioms.",
+    title: "Roued & Chandra",
+    desc: "Choose Professor Roued El Fadhel or Chandra for Portuguese guidance with Arabic, Tunisian Arabic, Portuguese, or English explanations.",
     color: "text-secondary",
     bg: "bg-secondary/10",
   },
@@ -47,8 +47,8 @@ const features = [
   },
   {
     icon: MessageCircle,
-    title: "Unlimited AI Chat",
-    desc: "Unlimited Portuguese conversations with model selection — no restrictions on length or topics.",
+    title: "Guided AI Conversation",
+    desc: "Situation-based Portuguese conversation with clear learning goals, tutor prompts, and editorial review boundaries.",
     color: "text-primary",
     bg: "bg-primary/10",
   },
@@ -78,14 +78,14 @@ export default function Home() {
           </Badge>
           <h1 className="font-['Playfair_Display'] text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
             Master Portuguese<br />
-            <span className="text-secondary italic">with AI-Powered Learning</span>
+            <span className="text-secondary italic">with Prize2Pride</span>
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            From your first "Olá" to diplomatic-level fluency — structured lessons, an AI professor, 
-            interactive exercises, and real-time progress tracking, all in one platform.
+            From your first "Olá" to advanced professional communication — 10,000 original curriculum routes,
+            guided tutors, interactive practice, and progress tracking in one learning platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/courses">
+            <Link href="/curriculum">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 shadow-lg">
                 Start Learning <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -105,9 +105,9 @@ export default function Home() {
           {/* Stats row */}
           <div className="mt-14 grid grid-cols-3 gap-6 max-w-lg mx-auto">
             {[
-              { value: "500+", label: "Lessons" },
+              { value: "10,000", label: "Curriculum routes" },
               { value: "6", label: "Levels" },
-              { value: "24/7", label: "AI Professor" },
+              { value: "2", label: "Tutor profiles" },
             ].map(({ value, label }) => (
               <div key={label} className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-secondary font-['Playfair_Display']">{value}</div>
@@ -153,10 +153,10 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-foreground mb-3">
-              Everything You Need to Learn Portuguese
+              A Four-Skill Portuguese Learning System
             </h2>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              A complete learning ecosystem powered by AI and built around real Portuguese content.
+              A learning ecosystem built around original situations, deliberate practice, and transparent editorial review.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -173,7 +173,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Professor Carlos CTA */}
+      {/* Prize2Pride tutor CTA */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center gap-10">
@@ -182,23 +182,22 @@ export default function Home() {
                 AI-Powered Teaching
               </Badge>
               <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                Meet رواد الفاضل —<br />
-                <span className="text-secondary italic">Your Personal Portuguese Tutor</span>
+                Meet Professor Roued El Fadhel and Chandra —<br />
+                <span className="text-secondary italic">Your Prize2Pride Tutors</span>
               </h2>
               <p className="text-primary-foreground/80 text-lg mb-8 leading-relaxed max-w-lg">
-                Ask رواد الفاضل anything about Portuguese — grammar rules, pronunciation, 
-                cultural nuances, verb conjugations, or the difference between EP and BP. 
-                Available 24/7 with five teaching registers from Slang to Diplomatic.
+                Choose a tutor, explanation language, and real-life situation. Practise grammar,
+                pronunciation, cultural nuance, and practical communication while preserving clear learning goals.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/professor">
                   <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-6">
-                    <GraduationCap className="mr-2 w-4 h-4" /> Talk to رواد الفاضل
+                    <GraduationCap className="mr-2 w-4 h-4" /> Practise with a tutor
                   </Button>
                 </Link>
                 <Link href="/chat">
                   <Button variant="outline" className="border-white/40 text-white hover:bg-white/10 bg-transparent font-semibold px-6">
-                    <Zap className="mr-2 w-4 h-4" /> Unlimited AI Chat
+                    <Zap className="mr-2 w-4 h-4" /> Open guided chat
                   </Button>
                 </Link>
               </div>
@@ -239,11 +238,11 @@ export default function Home() {
             Ready to speak Portuguese?
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
-            Join thousands of learners mastering Portuguese with structured lessons and AI guidance.
+            Start with a real-life situation, build all four skills, and use the curriculum map to plan your next step.
           </p>
-          <Link href="/courses">
+          <Link href="/curriculum">
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-10">
-              Browse All Lessons <ArrowRight className="ml-2 w-4 h-4" />
+              Explore the 10K Path <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
         </div>
