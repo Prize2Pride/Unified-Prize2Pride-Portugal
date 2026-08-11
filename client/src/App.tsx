@@ -11,6 +11,7 @@ import Professor from "./pages/Professor";
 import Chat from "./pages/Chat";
 import ProgressPage from "./pages/Progress";
 import CourseGenerator from "./pages/CourseGenerator";
+import Situations from "./pages/Situations";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/chat" component={Chat} />
         <Route path="/progress" component={ProgressPage} />
         <Route path="/generate" component={CourseGenerator} />
+        <Route path="/situations" component={Situations} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

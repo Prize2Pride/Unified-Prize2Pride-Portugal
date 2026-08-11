@@ -45,6 +45,13 @@ export default function Professor() {
   const selectedTutor = TUTOR_PROFILES[tutor];
 
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, isLoading]);
+  useEffect(() => {
+    const selectedSituation = sessionStorage.getItem("prize2prideSituationId");
+    if (selectedSituation) {
+      setSituationId(selectedSituation);
+      sessionStorage.removeItem("prize2prideSituationId");
+    }
+  }, []);
 
   async function sendMessage(messageText?: string) {
     const text = (messageText ?? input).trim();

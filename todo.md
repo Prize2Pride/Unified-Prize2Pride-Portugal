@@ -65,6 +65,7 @@
 - [x] Add a respectfully presented Chandra tutor profile and explicit tutor-selection model without altering the established Professor Roued experience.
 - [x] Add Arabic, Tunisian-dialect, Portuguese, and right-to-left learner preferences with clear Portuguese-immersion and Arabic-explanation modes.
 - [x] Add a situation-driven curriculum domain model supporting thousands of validated Portuguese real-life contexts.
+- [x] Add a searchable situation explorer and hand selected contexts into the multilingual tutor practice flow.
 - [ ] Upgrade the existing long-form lesson generator to structured, grounded, learner-safe outputs with tenant-aware rate limits and human-review controls.
 - [x] Add adaptive learner companion recommendations, durable mastery signals, review queues, and privacy-aware progress analytics.
 - [ ] Add production-quality test coverage, accessibility checks, performance budgets, and staged scale-readiness documentation.
