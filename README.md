@@ -15,7 +15,7 @@
 
 Professor Roued El Fadhel is the principal Portuguese tutor. Chandra is a distinct conversation-and-confidence tutor profile, presented respectfully as an adult professional. Learners can select a tutor, choose Arabic, Tunisian Arabic, Portuguese, or English explanations, select a real-life practice context, and learn through Portuguese-first examples.
 
-The platform generates **13,440 deterministic practice situations** across A1–C2, including arrival, housing, work, university, health, family, shopping, travel, public services, digital life, culture, entrepreneurship, emergency problem solving, sustainability, hospitality, and community participation. Each situation is a structured starting point for guided conversation, lessons, and review—not a claim that all content has already undergone human curriculum approval.
+The platform generates **8,064 deterministic practice situations** across A1–C2, including arrival, housing, work, university, health, family, shopping, travel, public services, digital life, culture, entrepreneurship, emergency problem solving, sustainability, hospitality, and community participation. Each situation is a structured starting point for guided conversation, lessons, and review—not a claim that all content has already undergone human curriculum approval.
 
 ## Generative Content Safety
 

@@ -68,7 +68,7 @@
 - [x] Add a searchable situation explorer and hand selected contexts into the multilingual tutor practice flow.
 - [ ] Upgrade the existing long-form lesson generator to structured, grounded, learner-safe outputs with tenant-aware rate limits and human-review controls.
 - [x] Add adaptive learner companion recommendations, durable mastery signals, review queues, and privacy-aware progress analytics.
-- [ ] Add production-quality test coverage, accessibility checks, performance budgets, and staged scale-readiness documentation.
+- [ ] Add production-quality test coverage, accessibility checks, performance budgets, and staged scale-readiness documentation. Initial type, test, build, and local visual checks have passed; route-level code splitting remains outstanding.
 
 ## Unified Prize2Pride Repository
 - [x] Audit the implemented `main` branch and the Arabic-speakers repository as the only currently authorized source inputs.
