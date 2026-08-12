@@ -25,3 +25,7 @@ The following files are environment-specific, generated, private, or superseded.
 | `validation-notes.md`, `vite.config.ts.bak`, managed task ledger | Local historical and working artifacts superseded by public repository documentation and version history. |
 
 No production secrets, session values, database contents, personal access tokens, or environment files belong in the public repository.
+
+## Content-Level Secret Scan
+
+**Verification record (2026-08-12):** all tracked public repository files were scanned for common personal-access-token prefixes, OpenAI-style key prefixes, private-key markers, AWS access-key prefixes, and non-placeholder database connection assignments. The scan initially identified a database configuration example in the preserved source brief; that brief was replaced with a credential-free requirements record. The final scan passed with no matching credential-like content.
